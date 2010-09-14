@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+{% load pygmentify %}
+
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}" xml:lang="{{ LANGUAGE_CODE }}" lang="{{ LANGUAGE_CODE }}" xmlns:fb="http://www.facebook.com/2008/fbml">
+    <head>
+        <title>django-pygments demo</title>
+        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}app/django_pygments/css/pygments_default.css" />
+        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}app/django_pygments/css/demo.css" />
+    </head>
+
+    <body>
+        <div id="content">
+            <h1>django-pygments demo</h1>
+            <br />
+            <h3>the "pygmentify" filter</h3>
+            {{ snippet|pygmentify }}
+            <br />
+            <h3>the "pygmentify_inline" filter</h3>
+            {{ snippet|pygmentify_inline }}
+            <br />
+            <h3>the "pygment" tag</h3>
+            {% pygment %}
+                            <pre lang="bash">
+stefan$ ./manage.py runserver_cp
+Validating models...
+0 errors found
+starting server with options {'ssl_certificate': None, 'workdir': None, 'verbose': 1, 'server_name': 'localhost', 'host': 'localhost', 'daemonize': 0, 'threads': 10, 'pidfile': None, 'shutdown_timeout': 60, 'ssl_private_key': None, 'server_group': 'www-data', 'port': 8000, 'server_user': 'www-data', 'request_queue_size': 5}
+
+Django version 1.2.1 SVN-13353, using settings 'proj.settings'
+Development server is running at http://localhost:8000/
+Quit the server with &lt;CTRL&gt;+C.
+[01/Aug/2010 17:34:39] "GET /labs/ HTTP/1.1" 200
+[01/Aug/2010 17:34:39] "GET /media/css/style.css HTTP/1.1" 304
+[01/Aug/2010 17:34:39] "GET /media/css/pretty.photo.css HTTP/1.1" 304
+[01/Aug/2010 17:34:39] "GET /media/js/jquery.js HTTP/1.1" 304
+[01/Aug/2010 17:34:39] "GET /media/app/labs/css/labs.css HTTP/1.1" 200
+[01/Aug/2010 17:34:39] "GET /media/css/main.css HTTP/1.1" 304
+[01/Aug/2010 17:34:39] "GET /media/js/main.js HTTP/1.1" 304
+[01/Aug/2010 17:34:39] "GET /media/js/custom.js HTTP/1.1" 304
+                            </pre>
+                <br />
+                {{ snippet|safe }}
+            {% endpygment %}
+        </div>
+    </body>
+
+</html>
+
+{% comment %}
+vim:filetype=htmldjango
+{% endcomment %}
+
