@@ -18,5 +18,5 @@ Notes:
 - to see a list of supported languages, look at the "lexer_names" variable in utils.py
 
 
-For technical support use the github bugtracker or contact us at developers@od-eon.com
+For technical support use the github issue tracker or contact us at developers@od-eon.com
 
