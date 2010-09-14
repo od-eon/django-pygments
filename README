@@ -5,7 +5,7 @@ Dependencies:
 - lxml
 
 Installation:
-- add django_pygments to your project directory
+- add django_pygments to your project directory and to INSTALLED_APPS in your settings.py
 - if you want to see the integrated demo page, add a urls.py entry and copy/link the media files in the proper dir
 
 Usage:
