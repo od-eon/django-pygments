@@ -17,6 +17,6 @@ Notes:
 - the custom HTML formatter class displays each line as an ordered list element, thus implementing line numbering without interfering with copy/pasting
 - to see a list of supported languages, look at the "lexer_names" variable in utils.py
 
-
+The project's site is here: http://od-eon.com/labs/django-pygments/
 For technical support use the github issue tracker or contact us at developers@od-eon.com
 
