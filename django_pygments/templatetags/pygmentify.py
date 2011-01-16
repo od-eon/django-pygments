@@ -1,19 +1,18 @@
 from django import template
 from django.template.defaultfilters import stringfilter
-from django_pygments.utils import pygmentify_text
+from django_pygments.utils import pygmentify_html
 from django.utils.safestring import mark_safe
 
 register = template.Library()
 
-# truncate after a certain number of characters
 @register.filter
 @stringfilter
 def pygmentify(value):
     try:
-        res = pygmentify_text(value)
+        res = pygmentify_html(value)
     except Exception, e:
         print e
-        print 'value="%s"' % value
+        print u'value="%s"' % value
         res = value
     return mark_safe(res)
 
@@ -21,10 +20,10 @@ def pygmentify(value):
 @stringfilter
 def pygmentify_inline(value):
     try:
-        res = pygmentify_text(value, noclasses=True)
+        res = pygmentify_html(value, noclasses=True)
     except Exception, e:
         print e
-        print 'value="%s"' % value
+        print u'value="%s"' % value
         res = value
     return mark_safe(res)
 
@@ -34,10 +33,10 @@ class PygmentifyNode(template.Node):
     def render(self, context):
         output = self.nodelist.render(context)
         try:
-            res = pygmentify_text(output)
+            res = pygmentify_html(output)
         except Exception, e:
             print e
-            print 'value="%s"' % value
+            print u'value="%s"' % value
             res = output
         return mark_safe(res)
 

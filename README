@@ -2,7 +2,6 @@ django-pygments is a Django app that provides a template tag and 2 filters for d
 
 Dependencies:
 - pygments
-- lxml
 
 Installation:
 - add django_pygments to your project directory and to INSTALLED_APPS in your settings.py

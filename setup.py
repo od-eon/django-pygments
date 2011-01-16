@@ -16,7 +16,7 @@ setup(
         url='http://github.com/odeoncg/django-pygments/tree/master',
         packages=find_packages(),
         include_package_data=True,
-        install_requires=['pygments', 'lxml'],
+        install_requires=['pygments'],
         classifiers=[
             'Environment :: Web Environment',
             'Intended Audience :: Developers',
