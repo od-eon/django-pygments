@@ -38,7 +38,7 @@ class PygmentifyNode(template.Node):
             res = pygmentify_html(output, **self.kwargs)
         except Exception, e:
             print e
-            print u'value="%s"' % value
+            print u'value="%s"' % output
             res = output
         return mark_safe(res)
 
