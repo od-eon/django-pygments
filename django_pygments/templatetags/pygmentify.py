@@ -42,6 +42,15 @@ class PygmentifyNode(template.Node):
 
 @register.tag
 def pygment(parser, token):
+    token_args = token.split_contents()
+    kwargs = {}
+    for item in token_args[1:]:
+        kw_parts = [i.strip() for i in item.split('=')]
+        # we intentionally leave kw_parts[1] as is without any
+        # exception handling so that if the argument supplied is
+        # not of the keyword argume type, the error is propogated
+        kwargs[kw_parts[0]] = eval(kw_parts[1])
+
     nodelist = parser.parse(('endpygment',))
     parser.delete_first_token()
     return PygmentifyNode(nodelist)
