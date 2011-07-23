@@ -35,7 +35,7 @@ class PygmentifyNode(template.Node):
     def render(self, context):
         output = self.nodelist.render(context)
         try:
-            res = pygmentify_html(output)
+            res = pygmentify_html(output, **self.kwargs)
         except Exception, e:
             print e
             print u'value="%s"' % value
