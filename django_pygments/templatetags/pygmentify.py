@@ -28,8 +28,10 @@ def pygmentify_inline(value):
     return mark_safe(res)
 
 class PygmentifyNode(template.Node):
-    def __init__(self, nodelist):
+    def __init__(self, nodelist, **kwargs):
         self.nodelist = nodelist
+        self.kwargs = kwargs
+
     def render(self, context):
         output = self.nodelist.render(context)
         try:
@@ -53,5 +55,4 @@ def pygment(parser, token):
 
     nodelist = parser.parse(('endpygment',))
     parser.delete_first_token()
-    return PygmentifyNode(nodelist)
-
+    return PygmentifyNode(nodelist, **kwargs)
