@@ -21,7 +21,9 @@
             {{ snippet|pygmentify_inline }}
             <br />
             <h3>the "pygment" tag</h3>
-            {% pygment %}
+            <!-- lineseparator="<br/><br/>" will be passed as keyword
+                 argument to the HtmlFormatter class -->
+            {% pygment lineseparator="<br/><br/>" %}
                             <pre lang="bash">
 stefan$ ./manage.py runserver_cp
 Validating models...

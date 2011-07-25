@@ -11,6 +11,7 @@ Usage:
 - enclose your code snippet in a pre tag with the non-standard "lang" attribute set to a supported language like this:
   <pre lang="python">....</pre>
 - see the view and demo template for examples on how to use the "pygmentify" and "pygmentify_inline" filters (the later is rather useful for RSS feeds) or the "pygment" tag
+- While using the "pygment" template tag, you can pass keyword arguments that you would pass to Pygments HtmlFormatter class constructor by passing them as with keyword arguments along with the pygment tag. Look at demo template for examples. There is one caveat with this feature still. You can only pass Python values as argument values (like Strings wrapped within quotes or True or False boolean values, etc.). It doesn't support Django template/context variables as arguments yet.
 
 Notes:
 - the custom HTML formatter class displays each line as an ordered list element, thus implementing line numbering without interfering with copy/pasting
